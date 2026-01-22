@@ -33,13 +33,13 @@ const MeetAri = () => {
             Meet the Professional Behind Your Service
           </h2>
           <p className="text-xl text-gray-700 mb-8 leading-relaxed">
-            Get to know Ari, the experienced craftsman who will personally handle your project with care and expertise.
+            Get to know Yehuda, the experienced craftsman who will personally handle your project with care and expertise.
           </p>
           <button
             onClick={() => setIsModalOpen(true)}
             className="px-8 py-4 bg-[#FFDA66] text-black font-bold text-lg rounded-xl hover:bg-[#FFE680] transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
           >
-            Meet Ari
+            Meet Yehuda
           </button>
         </div>
 

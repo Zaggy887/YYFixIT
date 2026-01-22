@@ -67,7 +67,7 @@ const AriModal = ({ isOpen, onClose }: AriModalProps) => {
             <X className="w-6 h-6 text-gray-600" />
           </button>
 
-          <h3 className="text-3xl md:text-4xl font-bold text-center mb-8 text-black">Meet Ari</h3>
+          <h3 className="text-3xl md:text-4xl font-bold text-center mb-8 text-black">Meet Yehuda</h3>
 
           <div className="flex flex-col md:flex-row items-center gap-8 md:gap-10">
             <div className="md:w-1/3 flex-shrink-0">
@@ -81,7 +81,7 @@ const AriModal = ({ isOpen, onClose }: AriModalProps) => {
             <div className="md:w-2/3">
               <h4 className="text-2xl md:text-3xl font-bold text-black mb-4">Yehuda Yitzchak Merber</h4>
               <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                Ari is the founder and driving force behind YY's Fix It & Build It Service. As the one in charge of everything, he ensures every project meets the highest standards of quality and customer satisfaction.
+                Yehuda is the founder and driving force behind YY's Fix It & Build It Service. As the one in charge of everything, he ensures every project meets the highest standards of quality and customer satisfaction.
               </p>
 
               <div className="space-y-4">
