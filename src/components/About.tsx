@@ -61,6 +61,41 @@ const About = () => {
             </p>
           </div>
         </div>
+
+        <div className="fade-in mt-20 bg-gradient-to-br from-[#FFDA66]/10 to-white border-2 border-[#FFDA66] rounded-2xl p-12" style={{ transitionDelay: '0.6s' }}>
+          <div className="max-w-4xl mx-auto">
+            <h3 className="text-3xl font-bold text-center mb-12 text-black">Meet Ari</h3>
+            <div className="flex flex-col md:flex-row items-center gap-10">
+              <div className="md:w-1/3 flex-shrink-0">
+                <img
+                  src="/img_20260122_163712.jpg"
+                  alt="Yehuda Yitzchak Merber (Ari)"
+                  className="rounded-2xl shadow-2xl w-full object-cover border-4 border-[#FFDA66]"
+                />
+              </div>
+              <div className="md:w-2/3">
+                <h4 className="text-2xl font-bold text-black mb-3">Yehuda Yitzchak Merber</h4>
+                <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                  Ari is the founder and driving force behind YY's Fix It & Build It Service. As the one in charge of everything, he ensures every project meets the highest standards of quality and customer satisfaction.
+                </p>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-[#FFDA66] rounded-full mt-2 flex-shrink-0"></div>
+                    <p className="text-gray-700"><span className="font-semibold text-black">Founded:</span> July 2024</p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-[#FFDA66] rounded-full mt-2 flex-shrink-0"></div>
+                    <p className="text-gray-700"><span className="font-semibold text-black">Experience:</span> Nearly 10 years in furniture assembly and home setup services</p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-[#FFDA66] rounded-full mt-2 flex-shrink-0"></div>
+                    <p className="text-gray-700"><span className="font-semibold text-black">Expertise:</span> From complex flat-pack furniture to complete room transformations</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
