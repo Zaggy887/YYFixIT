@@ -18,22 +18,25 @@ const Footer = () => {
             <h4 className="text-[#FFDA66] font-semibold mb-4">Get in Touch</h4>
             <div className="flex flex-col items-center md:items-end space-y-3">
               <a
-                href="mailto:contact@yysfixitbuildit.com"
+                href="mailto:yyfixit.buildit@gmail.com"
                 className="flex items-center text-[#FFDA66] hover:text-[#FFDA66]/80 transition-colors"
               >
                 <Mail className="w-5 h-5 mr-2" />
-                contact@yysfixitbuildit.com
+                yyfixit.buildit@gmail.com
               </a>
               <a
-                href="tel:+61412345678"
+                href="tel:+61475922766"
                 className="flex items-center text-[#FFDA66] hover:text-[#FFDA66]/80 transition-colors"
               >
                 <Phone className="w-5 h-5 mr-2" />
-                0412 345 678
+                0475 922 766
               </a>
               <div className="flex items-center text-[#FFDA66]">
                 <MapPin className="w-5 h-5 mr-2" />
-                Serving All Melbourne Areas
+                Areas: 3161, 3162, 3183, 3185
+              </div>
+              <div className="text-[#FFDA66]/80 text-sm mt-2">
+                ABN: 59 599 370 871
               </div>
             </div>
           </div>
