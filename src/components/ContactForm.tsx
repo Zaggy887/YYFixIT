@@ -55,24 +55,26 @@ const ContactForm = () => {
     }
   };
 
-  const encode = (data: { [key: string]: string }) => {
-    return Object.keys(data)
-      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-      .join("&");
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
     try {
+      const formDataToSubmit = new FormData();
+      formDataToSubmit.append("form-name", "booking");
+      formDataToSubmit.append("name", formData.name);
+      formDataToSubmit.append("mobile", formData.mobile);
+      formDataToSubmit.append("email", formData.email);
+      formDataToSubmit.append("postcode", formData.postcode);
+      formDataToSubmit.append("description", formData.description);
+
+      images.forEach((image) => {
+        formDataToSubmit.append("images", image);
+      });
+
       await fetch("/", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({
-          "form-name": "booking",
-          ...formData
-        })
+        body: formDataToSubmit
       });
 
       setShowConfirmation(true);
