@@ -34,13 +34,6 @@ const Statistics = () => {
           Professional service that saves you time and delivers perfect results
         </p>
 
-        <button
-          onClick={() => setIsModalOpen(true)}
-          className="fade-in mb-8 px-8 py-4 bg-[#FFDA66] text-black font-bold rounded-xl hover:bg-[#FFE680] transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
-        >
-          Meet Ari
-        </button>
-
         <div className="grid md:grid-cols-4 gap-8">
           <div className="fade-in stat-card group">
             <div className="w-20 h-20 mx-auto mb-6 bg-[#FFDA66] rounded-2xl shadow-lg flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
@@ -94,6 +87,14 @@ const Statistics = () => {
             </p>
           </div>
         </div>
+
+        <button
+          onClick={() => setIsModalOpen(true)}
+          className="fade-in mt-12 px-8 py-4 bg-[#FFDA66] text-black font-bold text-lg rounded-xl hover:bg-[#FFE680] transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
+          style={{ transitionDelay: '0.8s' }}
+        >
+          Meet Ari
+        </button>
 
         <AriModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       </div>
