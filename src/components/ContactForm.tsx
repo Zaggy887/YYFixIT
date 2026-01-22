@@ -1,23 +1,24 @@
 import { useEffect, useRef, useState } from 'react';
-import { CheckCircle } from 'lucide-react';
+import { CheckCircle, Upload } from 'lucide-react';
 
 type FormData = {
-  fullName: string;
+  name: string;
+  mobile: string;
   email: string;
-  phone: string;
-  serviceType: string;
-  message: string;
+  postcode: string;
+  description: string;
 };
 
 const ContactForm = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [formData, setFormData] = useState<FormData>({
-    fullName: '',
+    name: '',
+    mobile: '',
     email: '',
-    phone: '',
-    serviceType: 'Flat Pack Assembly',
-    message: '',
+    postcode: '',
+    description: '',
   });
+  const [images, setImages] = useState<File[]>([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showConfirmation, setShowConfirmation] = useState(false);
 
@@ -42,10 +43,16 @@ const ContactForm = () => {
   }, []);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      setImages(Array.from(e.target.files));
+    }
   };
 
   const encode = (data: { [key: string]: string }) => {
@@ -70,12 +77,13 @@ const ContactForm = () => {
 
       setShowConfirmation(true);
       setFormData({
-        fullName: '',
+        name: '',
+        mobile: '',
         email: '',
-        phone: '',
-        serviceType: 'Flat Pack Assembly',
-        message: '',
+        postcode: '',
+        description: '',
       });
+      setImages([]);
 
       const formElement = document.querySelector('form');
       if (formElement) {
@@ -132,14 +140,29 @@ const ContactForm = () => {
 
               <div className="space-y-6">
                 <div>
-                  <label htmlFor="fullName" className="block mb-2 font-medium text-black">
-                    Full Name *
+                  <label htmlFor="name" className="block mb-2 font-medium text-black">
+                    Name *
                   </label>
                   <input
                     type="text"
-                    id="fullName"
-                    name="fullName"
-                    value={formData.fullName}
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 rounded-lg border-2 border-black focus:ring-2 focus:ring-black focus:border-black"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="mobile" className="block mb-2 font-medium text-black">
+                    Mobile *
+                  </label>
+                  <input
+                    type="tel"
+                    id="mobile"
+                    name="mobile"
+                    value={formData.mobile}
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 rounded-lg border-2 border-black focus:ring-2 focus:ring-black focus:border-black"
@@ -162,14 +185,14 @@ const ContactForm = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="phone" className="block mb-2 font-medium text-black">
-                    Phone Number *
+                  <label htmlFor="postcode" className="block mb-2 font-medium text-black">
+                    Postcode *
                   </label>
                   <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    value={formData.phone}
+                    type="text"
+                    id="postcode"
+                    name="postcode"
+                    value={formData.postcode}
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 rounded-lg border-2 border-black focus:ring-2 focus:ring-black focus:border-black"
@@ -177,38 +200,48 @@ const ContactForm = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="serviceType" className="block mb-2 font-medium text-black">
-                    Service Type *
-                  </label>
-                  <select
-                    id="serviceType"
-                    name="serviceType"
-                    value={formData.serviceType}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 rounded-lg border-2 border-black focus:ring-2 focus:ring-black focus:border-black"
-                  >
-                    <option value="Flat Pack Assembly">Flat Pack Assembly</option>
-                    <option value="Home Office Setup">Home Office Setup</option>
-                    <option value="Family Room Setup">Family Room Setup</option>
-                    <option value="Other">Other</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block mb-2 font-medium text-black">
-                    Project Details *
+                  <label htmlFor="description" className="block mb-2 font-medium text-black">
+                    Description *
                   </label>
                   <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
+                    id="description"
+                    name="description"
+                    value={formData.description}
                     onChange={handleChange}
                     rows={4}
                     required
                     className="w-full px-4 py-3 rounded-lg border-2 border-black focus:ring-2 focus:ring-black focus:border-black"
                     placeholder="Please describe what you need assembled or set up, approximate number of items, and preferred timing..."
                   />
+                </div>
+
+                <div>
+                  <label htmlFor="images" className="block mb-2 font-medium text-black">
+                    Upload Images (Optional)
+                  </label>
+                  <div className="relative">
+                    <input
+                      type="file"
+                      id="images"
+                      name="images"
+                      onChange={handleImageChange}
+                      multiple
+                      accept="image/*"
+                      className="hidden"
+                    />
+                    <label
+                      htmlFor="images"
+                      className="w-full px-4 py-3 rounded-lg border-2 border-black bg-white hover:bg-gray-50 transition-colors cursor-pointer flex items-center justify-center gap-2 font-medium text-black"
+                    >
+                      <Upload className="w-5 h-5" />
+                      {images.length > 0 ? `${images.length} image(s) selected` : 'Choose images'}
+                    </label>
+                  </div>
+                  {images.length > 0 && (
+                    <p className="mt-2 text-sm text-gray-700">
+                      {images.map(img => img.name).join(', ')}
+                    </p>
+                  )}
                 </div>
               </div>
 
