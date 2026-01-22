@@ -5,7 +5,7 @@ const Hero = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [imagesLoaded, setImagesLoaded] = useState(false);
   const backgroundImages = [
-    'https://images.pexels.com/photos/4792509/pexels-photo-4792509.jpeg',
+    'https://images.pexels.com/photos/5618615/pexels-photo-5618615.jpeg?_gl=1*hr1z43*_ga*MTQyMjkzMDUxNi4xNzU4NzQxNDQ5*_ga_8JE65Q40S6*czE3NjkwNjE2MDQkbzkkZzEkdDE3NjkwNjE2MjYkajM4JGwwJGgw',
     'https://images.pexels.com/photos/6585763/pexels-photo-6585763.jpeg',
     'https://images.pexels.com/photos/7512994/pexels-photo-7512994.jpeg',
   ];
