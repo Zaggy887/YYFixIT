@@ -4,6 +4,7 @@ import { X } from 'lucide-react';
 const Articles = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
+  const [showAll, setShowAll] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -125,8 +126,29 @@ const Articles = () => {
             </div>
           </div>
 
-          <div className="hidden md:grid md:grid-cols-3 gap-8">
-            {projects.map((project, index) => renderProject(project, index))}
+          <div className="hidden md:block">
+            <div className="grid grid-cols-3 gap-8">
+              {projects.slice(0, 3).map((project, index) => renderProject(project, index))}
+            </div>
+
+            <div
+              className={`grid grid-cols-3 gap-8 overflow-hidden transition-all duration-700 ease-in-out ${
+                showAll ? 'max-h-[1000px] opacity-100 mt-8' : 'max-h-0 opacity-0'
+              }`}
+            >
+              {projects.slice(3).map((project, index) => renderProject(project, index + 3))}
+            </div>
+
+            {!showAll && (
+              <div className="mt-12 text-center fade-in">
+                <button
+                  onClick={() => setShowAll(true)}
+                  className="inline-block px-8 py-4 rounded-full font-semibold text-black bg-white hover:bg-gray-100 transition-all duration-300 shadow-lg border-2 border-black hover:scale-105"
+                >
+                  Show More Projects
+                </button>
+              </div>
+            )}
           </div>
 
           <div className="mt-12 text-center fade-in">
