@@ -44,7 +44,7 @@ const Articles = () => {
     {
       title: 'Bedroom Furniture Installation',
       image: '/3.jpg',
-      desc: 'Complete bedroom furniture assembly including bed frame, storage, and bedside tables.',
+      desc: 'Complete bedroom furniture assembly including bed frame, chairs, and bedside tables.',
       location: 'Brighton',
       category: 'Bedroom',
     },
