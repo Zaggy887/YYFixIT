@@ -15,18 +15,14 @@
   <body>
     <!-- Hidden form for Netlify -->
     <form name="booking" netlify netlify-honeypot="bot-field" hidden>
-      <input type="text" name="fullName" />
+      <input type="text" name="name" />
+      <input type="tel" name="mobile" />
       <input type="email" name="email" />
-      <input type="tel" name="phone" />
-      <select name="serviceType">
-        <option value="Flat Pack Assembly">Flat Pack Assembly</option>
-        <option value="Home Office Setup">Home Office Setup</option>
-        <option value="Family Room Setup">Family Room Setup</option>
-        <option value="Other">Other</option>
-      </select>
-      <textarea name="message"></textarea>
+      <input type="text" name="postcode" />
+      <textarea name="description"></textarea>
+      <input type="file" name="images" multiple />
     </form>
-    
+
     <div id="root"></div>
   </body>
 </html>
