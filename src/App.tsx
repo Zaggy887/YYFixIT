@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
+import Services from "./components/Services";
 import Process from "./components/Process";
 import Statistics from "./components/Statistics";
-import Universities from "./components/Universities";
 import Articles from "./components/Articles";
-import ContactForm from "./components/ContactForm";
 import Pricing from "./components/Pricing";
+import ContactForm from "./components/ContactForm";
 import Footer from "./components/Footer";
 import LoadingScreen from "./components/LoadingScreen";
 
@@ -34,12 +34,12 @@ function App() {
         <Navbar />
         <Hero />
         <About />
+        <Services />
         <Process />
         <Statistics />
-        <Universities />
         <Articles />
-        <ContactForm />
         <Pricing />
+        <ContactForm />
         <Footer />
       </div>
     </>

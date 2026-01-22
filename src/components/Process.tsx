@@ -27,45 +27,45 @@ const Process = () => {
   const steps = [
     {
       step: '1',
-      title: 'Fill Out Initial Form',
-      icon: ClipboardCheck,
-      description: 'Complete our simple contact form with your company details and requirements.',
+      title: 'Contact Us',
+      icon: Phone,
+      description: 'Call or fill out our booking form with your project details and preferred timing.',
     },
     {
       step: '2',
-      title: 'Consultation Call',
-      icon: Phone,
-      description: "We'll discuss your needs, any staffing challenges, and the ideal candidate profile.",
+      title: 'Get a Quote',
+      icon: ClipboardCheck,
+      description: "We'll provide a transparent quote based on your specific needs and requirements.",
     },
     {
       step: '3',
-      title: 'Candidate Selection',
+      title: 'Schedule Service',
       icon: Users,
-      description: "We'll present you with pre-screened candidates matching your requirements.",
+      description: "Choose a convenient time, and our expert team will arrive ready to work.",
     },
     {
       step: '4',
-      title: 'Onboarding Support',
+      title: 'Enjoy Your Space',
       icon: CheckSquare,
-      description: "We'll help ensure a smooth transition for both you and the student.",
+      description: "We'll complete the job efficiently, clean up, and leave you with a perfect result.",
     },
   ];
 
   return (
-    <section id="process" className="section bg-white relative" ref={sectionRef}>
+    <section id="process" className="section bg-[#FFDA66] relative" ref={sectionRef}>
       <div className="container px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="fade-in text-3xl font-bold mb-4">How Easy It Is To Work With Us</h2>
-          <p className="fade-in text-lg text-[#5BB6FF] mb-4">
-            We can have candidates ready for you within the next 7 days.
+          <h2 className="fade-in text-3xl font-bold mb-4 text-black">Simple Process, Amazing Results</h2>
+          <p className="fade-in text-lg text-black font-semibold mb-4">
+            Get your furniture assembled or room set up in just 4 easy steps.
           </p>
-          <p className="fade-in text-gray-600">
-            We are with you throughout every step of the process. Real people from Australia to speak to, real people you can trust.
+          <p className="fade-in text-gray-800">
+            We make it easy for you. From booking to completion, we handle everything professionally and efficiently.
           </p>
         </div>
 
         <div className="relative max-w-4xl mx-auto">
-          <div className="absolute left-1/2 top-[3rem] md:top-[2.5rem] bottom-0 w-0.5 bg-[#A5D8FF] transform -translate-x-1/2 z-0 pointer-events-none" />
+          <div className="absolute left-1/2 top-[3rem] md:top-[2.5rem] bottom-0 w-0.5 bg-black/20 transform -translate-x-1/2 z-0 pointer-events-none" />
 
           <div className="relative space-y-20 z-10">
             {steps.map(({ step, title, icon: Icon, description }, index) => {
@@ -83,15 +83,15 @@ const Process = () => {
                   className={`relative fade-in md:flex ${alignment} items-start`}
                   style={{ transitionDelay: delay }}
                 >
-                  <div className="relative md:w-1/2 bg-gray-50 rounded-xl p-6 shadow-md">
+                  <div className="relative md:w-1/2 bg-white rounded-xl p-6 shadow-lg border-2 border-black">
                     <div
-                      className={`absolute top-[-1.5rem] md:top-1/2 md:-translate-y-1/2 w-10 h-10 bg-[#5BB6FF] rounded-full flex items-center justify-center text-white font-bold text-sm ${numberPosition} ${numberTranslate}`}
+                      className={`absolute top-[-1.5rem] md:top-1/2 md:-translate-y-1/2 w-10 h-10 bg-black rounded-full flex items-center justify-center text-[#FFDA66] font-bold text-sm ${numberPosition} ${numberTranslate}`}
                     >
                       {step}
                     </div>
 
-                    <div className="w-12 h-12 bg-[#CDEBFF] rounded-full flex items-center justify-center mb-4">
-                      <Icon className="w-6 h-6 text-[#5BB6FF]" />
+                    <div className="w-12 h-12 bg-[#FFDA66] rounded-full flex items-center justify-center mb-4">
+                      <Icon className="w-6 h-6 text-black" />
                     </div>
                     <h3 className="text-xl font-semibold mb-2">{title}</h3>
                     <p className="text-gray-600">{description}</p>
@@ -105,9 +105,9 @@ const Process = () => {
         <div className="mt-16 text-center">
           <a
             href="#contact"
-            className="fade-in inline-block px-6 py-3 rounded-full font-semibold text-white bg-[#5BB6FF] hover:bg-[#48A3EB] transition-colors duration-300 shadow-md"
+            className="fade-in inline-block px-6 py-3 rounded-full font-semibold text-black bg-white hover:bg-gray-100 transition-colors duration-300 shadow-lg border-2 border-black"
           >
-            Get Started Today
+            Book Your Service Now
           </a>
         </div>
       </div>

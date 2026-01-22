@@ -61,28 +61,28 @@ const Hero = () => {
 
       <div className={`container mx-auto px-4 relative z-10 text-white ${imagesLoaded ? 'animate-fade-in-slow' : 'opacity-0'}`}>
         <div className="max-w-3xl">
-          <h1 className="text-4xl sm:text-6xl font-bold leading-snug sm:leading-tight mb-5 sm:mb-6 drop-shadow-sm animate-slide-up">
-            Connecting Melbourne's Top{" "}
-            <span className="text-[#A5D8FF] drop-shadow-sm">Student Talent</span>
+          <h1 className="text-4xl sm:text-6xl font-bold leading-snug sm:leading-tight mb-5 sm:mb-6 drop-shadow-lg animate-slide-up">
+            Professional{" "}
+            <span className="text-[#FFDA66] drop-shadow-lg">Assembly & Setup</span>{" "}
+            Services
           </h1>
 
-          <p className="text-base sm:text-xl text-white/90 mb-8 sm:mb-10 drop-shadow-sm animate-fade-in-slower">
-            ONLYUgrads specialises in connecting leading companies with exceptional
-            university students across all commerce and business discplines.
+          <p className="text-base sm:text-xl text-white/90 mb-8 sm:mb-10 drop-shadow-md animate-fade-in-slower">
+            YY's Fix It & Build It Service specializes in flat pack furniture assembly, home office setup, and family room transformations. We bring your vision to life with expert craftsmanship.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto animate-slide-up">
             <a
               href="#contact"
-              className="px-5 py-2.5 sm:px-6 sm:py-3 rounded-full text-white bg-[#5BB6FF] hover:bg-[#48A3EB] transition-all shadow-md font-medium sm:font-semibold text-base sm:text-lg text-center"
+              className="px-5 py-2.5 sm:px-6 sm:py-3 rounded-full text-black bg-[#FFDA66] hover:bg-yellow-400 transition-all shadow-lg font-medium sm:font-semibold text-base sm:text-lg text-center"
             >
-              Get Started
+              Book Service
             </a>
             <a
-              href="#referral"
-              className="px-5 py-2.5 sm:px-6 sm:py-3 rounded-full text-white bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-all shadow-md font-medium sm:font-semibold text-base sm:text-lg text-center border border-white/30"
+              href="#pricing"
+              className="px-5 py-2.5 sm:px-6 sm:py-3 rounded-full text-white bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-all shadow-lg font-medium sm:font-semibold text-base sm:text-lg text-center border border-white/30"
             >
-              Refer & Earn
+              View Pricing
             </a>
           </div>
         </div>

@@ -70,13 +70,13 @@ const Navbar = () => {
 
   const navLink = (id: string, label: string, mobile = false) => {
     const base = mobile
-      ? "text-white text-lg font-light hover:text-[#5BB6FF] transition-colors"
+      ? "text-[#FFDA66] text-lg font-light hover:text-yellow-400 transition-colors"
       : `transition-colors ${
           activeSection === id
-            ? "text-[#5BB6FF] font-medium"
+            ? "text-black font-medium"
             : isScrolled
-            ? "text-gray-700 hover:text-[#5BB6FF]"
-            : "text-white hover:text-[#5BB6FF]"
+            ? "text-black hover:text-gray-700"
+            : "text-white hover:text-[#FFDA66]"
         }`;
 
     return (
@@ -93,29 +93,25 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <a href="/" className="text-2xl font-bold">
-          <span className={isScrolled ? 'text-black' : 'text-white'}>ONLY</span>
-          <span className="text-[#5BB6FF]">U</span>
-          <span className={isScrolled ? 'text-black' : 'text-white'}>grads</span>
+        <a href="/" className="text-xl md:text-2xl font-bold">
+          <span className={isScrolled ? 'text-black' : 'text-white'}>YY's Fix It & Build It Service</span>
         </a>
 
         {/* Desktop */}
         <div className="hidden md:flex items-center space-x-6">
           {navLink("about", "About")}
+          {navLink("services", "Services")}
           {navLink("process", "Process")}
-          {navLink("universities", "Universities")}
-          {navLink("articles", "Insights")}
           {navLink("pricing", "Pricing")}
-          {navLink("referral", "Referral")}
           <button
             onClick={() => scrollToSection("contact")}
-            className={`px-6 py-2 rounded-full text-white transition-all duration-300 ${
+            className={`px-6 py-2 rounded-full transition-all duration-300 ${
               activeSection === "contact"
-                ? "bg-[#5BB6FF] bg-opacity-90"
-                : "bg-[#5BB6FF] hover:bg-[#48A3EB]"
+                ? "bg-black text-[#FFDA66] bg-opacity-90"
+                : "bg-black text-[#FFDA66] hover:bg-gray-900"
             }`}
           >
-            Contact Us
+            Book Now
           </button>
         </div>
 
@@ -130,14 +126,14 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-lg transition-opacity duration-300 ${
+        className={`md:hidden fixed inset-0 z-50 bg-black/95 backdrop-blur-lg transition-opacity duration-300 ${
           isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
       >
         <div className="absolute top-4 right-4">
           <button
             onClick={() => setIsMenuOpen(false)}
-            className="text-white hover:text-[#48A3EB] transition-colors"
+            className="text-[#FFDA66] hover:text-yellow-400 transition-colors"
           >
             <X size={28} />
           </button>
@@ -145,16 +141,14 @@ const Navbar = () => {
 
         <div className="h-full flex flex-col items-center justify-center space-y-6 px-6 animate-mobile-nav">
           {navLink("about", "About", true)}
+          {navLink("services", "Services", true)}
           {navLink("process", "Process", true)}
-          {navLink("universities", "Universities", true)}
-          {navLink("articles", "Insights", true)}
           {navLink("pricing", "Pricing", true)}
-          {navLink("referral", "Referral", true)}
           <button
             onClick={() => scrollToSection("contact")}
-            className="mt-4 bg-[#5BB6FF] text-white px-6 py-2 rounded-full text-lg font-medium hover:bg-[#48A3EB] transition"
+            className="mt-4 bg-[#FFDA66] text-black px-6 py-2 rounded-full text-lg font-medium hover:bg-yellow-400 transition"
           >
-            Contact Us
+            Book Now
           </button>
         </div>
       </div>

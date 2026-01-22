@@ -5,10 +5,9 @@ type FormData = {
   fullName: string;
   email: string;
   phone: string;
+  serviceType: string;
   message: string;
 };
-
-type FormType = 'company' | 'student';
 
 const ContactForm = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -16,11 +15,11 @@ const ContactForm = () => {
     fullName: '',
     email: '',
     phone: '',
+    serviceType: 'Flat Pack Assembly',
     message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showConfirmation, setShowConfirmation] = useState(false);
-  const [formType, setFormType] = useState<FormType>('company');
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -43,7 +42,7 @@ const ContactForm = () => {
   }, []);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -64,7 +63,7 @@ const ContactForm = () => {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encode({
-          "form-name": formType === 'company' ? "contact" : "student-contact",
+          "form-name": "booking",
           ...formData
         })
       });
@@ -74,6 +73,7 @@ const ContactForm = () => {
         fullName: '',
         email: '',
         phone: '',
+        serviceType: 'Flat Pack Assembly',
         message: '',
       });
 
@@ -90,76 +90,40 @@ const ContactForm = () => {
     }
   };
 
-  const sectionStyle = formType === 'student' 
-    ? 'section bg-gradient-to-b from-purple-50 to-white relative'
-    : 'section bg-gradient-to-b from-sky-100 to-white relative';
-
-  const buttonStyle = formType === 'student'
-    ? 'bg-purple-600 hover:bg-purple-700'
-    : 'bg-sky-400 hover:bg-sky-500';
-
-  const accentColor = formType === 'student' ? 'text-purple-600' : 'text-sky-400';
-
   return (
     <section
       id="contact"
-      className={sectionStyle}
+      className="section bg-white relative"
       ref={sectionRef}
     >
       <div className="container">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="fade-in mb-6">
-            <span className={accentColor}>Start Your Journey</span> With Us
+          <h2 className="fade-in mb-6 text-black text-4xl font-bold">
+            Book Your Service Today
           </h2>
-          <p className="fade-in text-lg text-gray-600">
-            Whether you're a company looking for talent or a student seeking opportunities, we're here to help.
+          <p className="fade-in text-lg text-gray-700">
+            Ready to transform your space? Fill out the form below and we'll get back to you with a free quote.
           </p>
         </div>
 
-        {/* Form Type Selection */}
-        <div className="max-w-2xl mx-auto mb-8">
-          <div className="flex justify-center gap-4">
-            <button
-              onClick={() => setFormType('company')}
-              className={`px-6 py-3 rounded-full transition-all ${
-                formType === 'company'
-                  ? 'bg-sky-400 text-white'
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-              }`}
-            >
-              I'm a Company
-            </button>
-            <button
-              onClick={() => setFormType('student')}
-              className={`px-6 py-3 rounded-full transition-all ${
-                formType === 'student'
-                  ? 'bg-purple-600 text-white'
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-              }`}
-            >
-              I'm a Student
-            </button>
-          </div>
-        </div>
-
         {showConfirmation ? (
-          <div className="max-w-md mx-auto text-center bg-white rounded-xl shadow-lg p-8 animate-fade-in">
+          <div className="max-w-md mx-auto text-center bg-[#FFDA66] rounded-xl shadow-lg p-8 animate-fade-in border-2 border-black">
             <div className="mb-6">
-              <CheckCircle className={`w-24 h-24 ${accentColor} mx-auto`} />
+              <CheckCircle className="w-24 h-24 text-black mx-auto" />
             </div>
-            <h3 className={`text-2xl font-bold ${formType === 'student' ? 'text-purple-800' : 'text-sky-600'} mb-2`}>Thank you!</h3>
-            <p className={formType === 'student' ? 'text-purple-700' : 'text-sky-500'}>We'll be in touch with you shortly.</p>
+            <h3 className="text-2xl font-bold text-black mb-2">Thank you for booking!</h3>
+            <p className="text-gray-800">We'll contact you shortly with your free quote and available times.</p>
           </div>
         ) : (
           <div className="max-w-2xl mx-auto">
             <form
-              name={formType === 'company' ? "contact" : "student-contact"}
+              name="booking"
               method="POST"
               onSubmit={handleSubmit}
-              className="fade-in bg-white rounded-xl shadow-lg p-8"
+              className="fade-in bg-[#FFDA66] rounded-xl shadow-lg p-8 border-2 border-black"
               data-netlify="true"
             >
-              <input type="hidden" name="form-name" value={formType === 'company' ? "contact" : "student-contact"} />
+              <input type="hidden" name="form-name" value="booking" />
               <div hidden>
                 <label>
                   Don't fill this out: <input name="bot-field" />
@@ -168,7 +132,7 @@ const ContactForm = () => {
 
               <div className="space-y-6">
                 <div>
-                  <label htmlFor="fullName" className="block mb-2 font-medium text-gray-700">
+                  <label htmlFor="fullName" className="block mb-2 font-medium text-black">
                     Full Name *
                   </label>
                   <input
@@ -178,14 +142,12 @@ const ContactForm = () => {
                     value={formData.fullName}
                     onChange={handleChange}
                     required
-                    className={`w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 ${
-                      formType === 'student' ? 'focus:ring-purple-500 focus:border-purple-500' : 'focus:ring-sky-400 focus:border-sky-400'
-                    }`}
+                    className="w-full px-4 py-3 rounded-lg border-2 border-black focus:ring-2 focus:ring-black focus:border-black"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block mb-2 font-medium text-gray-700">
+                  <label htmlFor="email" className="block mb-2 font-medium text-black">
                     Email *
                   </label>
                   <input
@@ -195,14 +157,12 @@ const ContactForm = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className={`w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 ${
-                      formType === 'student' ? 'focus:ring-purple-500 focus:border-purple-500' : 'focus:ring-sky-400 focus:border-sky-400'
-                    }`}
+                    className="w-full px-4 py-3 rounded-lg border-2 border-black focus:ring-2 focus:ring-black focus:border-black"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="phone" className="block mb-2 font-medium text-gray-700">
+                  <label htmlFor="phone" className="block mb-2 font-medium text-black">
                     Phone Number *
                   </label>
                   <input
@@ -212,15 +172,32 @@ const ContactForm = () => {
                     value={formData.phone}
                     onChange={handleChange}
                     required
-                    className={`w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 ${
-                      formType === 'student' ? 'focus:ring-purple-500 focus:border-purple-500' : 'focus:ring-sky-400 focus:border-sky-400'
-                    }`}
+                    className="w-full px-4 py-3 rounded-lg border-2 border-black focus:ring-2 focus:ring-black focus:border-black"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block mb-2 font-medium text-gray-700">
-                    Additional Information
+                  <label htmlFor="serviceType" className="block mb-2 font-medium text-black">
+                    Service Type *
+                  </label>
+                  <select
+                    id="serviceType"
+                    name="serviceType"
+                    value={formData.serviceType}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 rounded-lg border-2 border-black focus:ring-2 focus:ring-black focus:border-black"
+                  >
+                    <option value="Flat Pack Assembly">Flat Pack Assembly</option>
+                    <option value="Home Office Setup">Home Office Setup</option>
+                    <option value="Family Room Setup">Family Room Setup</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label htmlFor="message" className="block mb-2 font-medium text-black">
+                    Project Details *
                   </label>
                   <textarea
                     id="message"
@@ -228,13 +205,9 @@ const ContactForm = () => {
                     value={formData.message}
                     onChange={handleChange}
                     rows={4}
-                    className={`w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 ${
-                      formType === 'student' ? 'focus:ring-purple-500 focus:border-purple-500' : 'focus:ring-sky-400 focus:border-sky-400'
-                    }`}
-                    placeholder={formType === 'company' 
-                      ? "e.g., Employment type (Full-time, Part-time), Role (Accountant, Finance), Industry, Location"
-                      : "e.g., University, Course, Year Level, Areas of Interest"
-                    }
+                    required
+                    className="w-full px-4 py-3 rounded-lg border-2 border-black focus:ring-2 focus:ring-black focus:border-black"
+                    placeholder="Please describe what you need assembled or set up, approximate number of items, and preferred timing..."
                   />
                 </div>
               </div>
@@ -243,15 +216,15 @@ const ContactForm = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`w-full btn flex items-center justify-center text-white ${buttonStyle}`}
+                  className="w-full btn flex items-center justify-center text-[#FFDA66] bg-black hover:bg-gray-900"
                 >
                   {isSubmitting ? (
                     <>
-                      <div className="animate-spin h-5 w-5 mr-3 border-2 border-white border-t-transparent rounded-full" />
-                      Processing...
+                      <div className="animate-spin h-5 w-5 mr-3 border-2 border-[#FFDA66] border-t-transparent rounded-full" />
+                      Sending...
                     </>
                   ) : (
-                    'Submit'
+                    'Get Free Quote'
                   )}
                 </button>
               </div>
