@@ -150,15 +150,6 @@ const Pricing = () => {
               </div>
             </div>
           </div>
-
-          <div className="mt-12 text-center">
-            <a
-              href="#contact"
-              className="inline-block bg-black text-[#FFDA66] font-semibold py-4 px-8 rounded-full hover:bg-gray-900 transition shadow-lg hover:shadow-xl"
-            >
-              Get Your Free Quote Now
-            </a>
-          </div>
         </div>
       </section>
     </div>
