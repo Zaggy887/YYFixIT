@@ -15,9 +15,9 @@ function App() {
 
   useEffect(() => {
     const imagesToPreload = [
-      '/Background_1.jpg',
-      '/Background_2.jpg',
-      '/Background_3.jpg',
+      'https://images.pexels.com/photos/4792509/pexels-photo-4792509.jpeg',
+      'https://images.pexels.com/photos/6585763/pexels-photo-6585763.jpeg',
+      'https://images.pexels.com/photos/7512994/pexels-photo-7512994.jpeg',
     ];
 
     let loadedCount = 0;
