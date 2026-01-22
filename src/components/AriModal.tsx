@@ -1,5 +1,5 @@
 import { X } from 'lucide-react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 interface AriModalProps {
   isOpen: boolean;
@@ -7,11 +7,19 @@ interface AriModalProps {
 }
 
 const AriModal = ({ isOpen, onClose }: AriModalProps) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [shouldRender, setShouldRender] = useState(false);
+
   useEffect(() => {
     if (isOpen) {
+      setShouldRender(true);
+      setTimeout(() => setIsVisible(true), 10);
       document.body.style.overflow = 'hidden';
     } else {
+      setIsVisible(false);
+      const timer = setTimeout(() => setShouldRender(false), 400);
       document.body.style.overflow = 'unset';
+      return () => clearTimeout(timer);
     }
 
     return () => {
@@ -35,15 +43,19 @@ const AriModal = ({ isOpen, onClose }: AriModalProps) => {
     };
   }, [isOpen, onClose]);
 
-  if (!isOpen) return null;
+  if (!shouldRender) return null;
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm transition-opacity duration-300"
+      className={`fixed inset-0 z-50 flex items-center justify-center p-4 transition-all duration-400 ease-out ${
+        isVisible ? 'bg-black/50 backdrop-blur-sm' : 'bg-black/0 backdrop-blur-none'
+      }`}
       onClick={onClose}
     >
       <div
-        className="bg-white rounded-3xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto transform transition-all duration-300 scale-100"
+        className={`bg-white rounded-3xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto transform transition-all duration-400 ease-out ${
+          isVisible ? 'scale-100 opacity-100' : 'scale-95 opacity-0'
+        }`}
         onClick={(e) => e.stopPropagation()}
       >
         <div className="relative p-8 md:p-12">
