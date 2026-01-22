@@ -7,7 +7,7 @@ const Hero = () => {
   const backgroundImages = [
     'https://images.pexels.com/photos/5618615/pexels-photo-5618615.jpeg?_gl=1*hr1z43*_ga*MTQyMjkzMDUxNi4xNzU4NzQxNDQ5*_ga_8JE65Q40S6*czE3NjkwNjE2MDQkbzkkZzEkdDE3NjkwNjE2MjYkajM4JGwwJGgw',
     'https://images.pexels.com/photos/6585763/pexels-photo-6585763.jpeg',
-    'https://images.pexels.com/photos/7512994/pexels-photo-7512994.jpeg',
+    'https://images.pexels.com/photos/20285350/pexels-photo-20285350.jpeg?_gl=1*jkih5u*_ga*MTQyMjkzMDUxNi4xNzU4NzQxNDQ5*_ga_8JE65Q40S6*czE3NjkwNjE2MDQkbzkkZzEkdDE3NjkwNjE3MzgkajIkbDAkaDA.',
   ];
   
   const imageRefs = useRef<HTMLDivElement[]>([]);
