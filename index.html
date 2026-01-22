@@ -11,20 +11,36 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   </head>
   <body>
-    <!-- Hidden form for Netlify -->
+    <!-- Hidden forms for Netlify -->
     <form name="booking" netlify netlify-honeypot="bot-field" hidden>
-      <input type="text" name="fullName" />
+      <input type="text" name="name" />
+      <input type="tel" name="mobile" />
       <input type="email" name="email" />
-      <input type="tel" name="phone" />
-      <select name="serviceType">
-        <option value="Flat Pack Assembly">Flat Pack Assembly</option>
-        <option value="Home Office Setup">Home Office Setup</option>
-        <option value="Family Room Setup">Family Room Setup</option>
-        <option value="Other">Other</option>
-      </select>
-      <textarea name="message"></textarea>
+      <input type="text" name="postcode" />
+      <textarea name="description"></textarea>
+      <input type="file" name="images" multiple />
     </form>
-    
+
+    <form name="referral-company" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="referrerName" />
+      <input type="email" name="referrerEmail" />
+      <input type="text" name="referralName" />
+      <input type="email" name="referralEmail" />
+      <input type="tel" name="referralPhone" />
+      <textarea name="message"></textarea>
+      <input type="checkbox" name="isAnonymous" />
+    </form>
+
+    <form name="referral-student" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="referrerName" />
+      <input type="email" name="referrerEmail" />
+      <input type="text" name="referralName" />
+      <input type="email" name="referralEmail" />
+      <input type="tel" name="referralPhone" />
+      <textarea name="message"></textarea>
+      <input type="checkbox" name="isAnonymous" />
+    </form>
+
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
