@@ -93,8 +93,15 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <a href="/" className="text-xl md:text-2xl font-bold">
-          <span className={isScrolled ? 'text-black' : 'text-white'}>YY's Fix It & Build It Service</span>
+        <a href="/" className="flex items-center gap-3">
+          <img
+            src="/yys_logo.jpeg"
+            alt="YY's Fix It & Build It Service Logo"
+            className="h-10 md:h-12 w-auto rounded-lg shadow-md"
+          />
+          <span className={`text-lg md:text-xl font-bold ${isScrolled ? 'text-black' : 'text-white'}`}>
+            YY's Fix It & Build It Service
+          </span>
         </a>
 
         {/* Desktop */}
