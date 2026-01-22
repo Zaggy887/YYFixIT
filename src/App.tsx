@@ -5,6 +5,7 @@ import About from "./components/About";
 import Services from "./components/Services";
 import Process from "./components/Process";
 import Statistics from "./components/Statistics";
+import MeetAri from "./components/MeetAri";
 import Articles from "./components/Articles";
 import Pricing from "./components/Pricing";
 import ContactForm from "./components/ContactForm";
@@ -53,6 +54,7 @@ function App() {
       <Services />
       <Process />
       <Statistics />
+      <MeetAri />
       <Articles />
       <Pricing />
       <ContactForm />
