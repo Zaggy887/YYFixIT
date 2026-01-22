@@ -108,7 +108,7 @@ const Navbar = () => {
         <div className="hidden md:flex items-center space-x-6">
           {navLink("about", "About")}
           {navLink("services", "Services")}
-          {navLink("process", "Process")}
+          {navLink("articles", "Gallery")}
           {navLink("pricing", "Pricing")}
           <button
             onClick={() => scrollToSection("contact")}
@@ -149,7 +149,7 @@ const Navbar = () => {
         <div className="h-full flex flex-col items-center justify-center space-y-6 px-6 animate-mobile-nav">
           {navLink("about", "About", true)}
           {navLink("services", "Services", true)}
-          {navLink("process", "Process", true)}
+          {navLink("articles", "Gallery", true)}
           {navLink("pricing", "Pricing", true)}
           <button
             onClick={() => scrollToSection("contact")}
