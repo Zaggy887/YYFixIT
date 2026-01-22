@@ -9,40 +9,55 @@ import Articles from "./components/Articles";
 import Pricing from "./components/Pricing";
 import ContactForm from "./components/ContactForm";
 import Footer from "./components/Footer";
-import LoadingScreen from "./components/LoadingScreen";
 
 function App() {
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoaded(true);
-    }, 1800);
+    const imagesToPreload = [
+      '/Background_1.jpg',
+      '/Background_2.jpg',
+      '/Background_3.jpg',
+    ];
 
-    return () => clearTimeout(timer);
+    let loadedCount = 0;
+    const totalImages = imagesToPreload.length;
+
+    imagesToPreload.forEach((src) => {
+      const img = new Image();
+      img.onload = () => {
+        loadedCount++;
+        if (loadedCount === totalImages) {
+          setImagesLoaded(true);
+        }
+      };
+      img.onerror = () => {
+        loadedCount++;
+        if (loadedCount === totalImages) {
+          setImagesLoaded(true);
+        }
+      };
+      img.src = src;
+    });
   }, []);
 
   return (
-    <>
-      {!isLoaded && <LoadingScreen />}
-
-      <div
-        className={`min-h-screen transition-opacity duration-700 ${
-          isLoaded ? "opacity-100" : "opacity-0"
-        }`}
-      >
-        <Navbar />
-        <Hero />
-        <About />
-        <Services />
-        <Process />
-        <Statistics />
-        <Articles />
-        <Pricing />
-        <ContactForm />
-        <Footer />
-      </div>
-    </>
+    <div
+      className={`min-h-screen transition-opacity duration-500 ${
+        imagesLoaded ? "opacity-100" : "opacity-0"
+      }`}
+    >
+      <Navbar />
+      <Hero />
+      <About />
+      <Services />
+      <Process />
+      <Statistics />
+      <Articles />
+      <Pricing />
+      <ContactForm />
+      <Footer />
+    </div>
   );
 }
 
